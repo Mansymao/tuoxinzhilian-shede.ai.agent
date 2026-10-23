@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>拓鑫智连（三台）科技有限公司 - 2027年度奖补项目申报清单</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2d5f8a;
+            --accent: #e8943a;
+            --accent-light: #f5b971;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #6c7a89;
+            --border: #dce3ec;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --info: #3498db;
+            --danger: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== Header (Sticky) ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header h1 span {
+            color: var(--accent-light);
+            font-weight: 400;
+            font-size: 16px;
+            margin-left: 12px;
+        }
+        .header-meta {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ===== Navigation ===== */
+        .nav {
+            background: var(--primary);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .nav-inner::-webkit-scrollbar { display: none; }
+        .nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            flex-shrink: 0;
+        }
+        .nav a:hover, .nav a.active {
+            color: white;
+            background: rgba(255,255,255,0.05);
+            border-bottom-color: var(--accent);
+        }
+
+        /* ===== Container ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 40px 60px;
+        }
+
+        /* ===== Section ===== */
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 120px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 17px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .card p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* ===== Info Grid ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 22px 26px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+        }
+        .info-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .info-item .value {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* ===== Badge ===== */
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .badge-national { background: linear-gradient(135deg, #e74c3c22, #e74c3c11); color: #c0392b; border: 1px solid #e74c3c44; }
+        .badge-province { background: linear-gradient(135deg, #3498db22, #3498db11); color: #2471a3; border: 1px solid #3498db44; }
+        .badge-city { background: linear-gradient(135deg, #27ae6022, #27ae6011); color: #1e8449; border: 1px solid #27ae6044; }
+        .badge-other { background: linear-gradient(135deg, #8e44ad22, #8e44ad11); color: #6c3483; border: 1px solid #8e44ad44; }
+
+        /* ===== Business Cards Grid ===== */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .biz-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .biz-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+        .biz-card .biz-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; margin-bottom: 14px;
+        }
+        .biz-card h4 { font-size: 16px; color: var(--primary); margin-bottom: 8px; }
+        .biz-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+        /* ===== Desktop Table ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 1600px;
+        }
+        thead th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        tbody tr:hover { background: #f0f5ff; }
+        tbody tr:last-child td { border-bottom: none; }
+        .level-tag {
+            display: inline-block; padding: 3px 10px; border-radius: 12px;
+            font-size: 12px; font-weight: 600; white-space: nowrap;
+        }
+        .level-national { background: #fde8e8; color: #c0392b; }
+        .level-province { background: #e8f0fe; color: #2471a3; }
+        .level-city { background: #e8f8e8; color: #1e8449; }
+        .level-district { background: #f3e8fd; color: #6c3483; }
+        .amount { font-weight: 700; color: var(--accent); font-size: 15px; }
+        .category-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 500; background: #f0f0f0; color: #555;
+        }
+
+        /* ===== Tech Tags ===== */
+        .tech-tag {
+            display: inline-block; padding: 2px 7px; border-radius: 4px;
+            font-size: 11px; font-weight: 500; background: #e8f4fd; color: #2471a3;
+            margin: 1px 2px; white-space: nowrap;
+        }
+        .tech-tag.ai { background: #fde8f4; color: #c0392b; }
+        .tech-tag.hw { background: #e8fde8; color: #1e8449; }
+        .tech-tag.sw { background: #f3e8fd; color: #6c3483; }
+
+        /* ===== Mobile Card View (hidden on desktop) ===== */
+        .mobile-cards { display: none; }
+
+        .m-project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .m-project-card .m-card-header {
+            padding: 16px 18px 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .m-project-card .m-card-header .m-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            flex: 1;
+        }
+        .m-project-card .m-card-header .m-seq {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--accent);
+            color: white; font-size: 13px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .m-project-card .m-card-body { padding: 4px 18px 16px; }
+        .m-field {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .m-field:last-child { border-bottom: none; }
+        .m-field .m-label {
+            min-width: 80px;
+            max-width: 80px;
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 600;
+            padding-top: 2px;
+            flex-shrink: 0;
+        }
+        .m-field .m-value {
+            flex: 1;
+            color: var(--text);
+            word-break: break-word;
+        }
+        .m-field .m-value.amount {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        /* ===== Stats Bar ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .stat-card .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* ===== Filter Buttons ===== */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: white;
+            color: var(--text);
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ===== Timeline ===== */
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--accent), var(--primary));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 24px; padding: 18px 24px;
+            background: var(--card-bg); border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border);
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -26px; top: 24px;
+            width: 14px; height: 14px; background: var(--accent);
+            border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-item .year { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+        .timeline-item h4 { font-size: 15px; color: var(--primary); margin-bottom: 6px; }
+        .timeline-item p { font-size: 13px; color: var(--text-light); }
+        .status-done { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #27ae6022; color: #27ae60; font-weight: 600; }
+        .status-progress { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; background: #f39c1222; color: #f39c12; font-weight: 600; }
+
+        /* ===== Policy Links ===== */
+        .policy-ref a {
+            color: var(--info); text-decoration: none; border-bottom: 1px dashed var(--info);
+            font-size: 13px; transition: all 0.2s; word-break: break-all;
+        }
+        .policy-ref a:hover { color: var(--primary); border-bottom-style: solid; }
+        .policy-card a {
+            color: var(--info); text-decoration: none; border-bottom: 1px dashed var(--info); transition: all 0.2s;
+        }
+        .policy-card a:hover { color: var(--primary); border-bottom-style: solid; }
+        .ext-icon { display: inline-block; font-size: 10px; margin-left: 2px; opacity: 0.6; }
+
+        /* ===== Roadmap ===== */
+        .roadmap { margin-top: 24px; }
+        .roadmap-quarter {
+            display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start;
+        }
+        .roadmap-label {
+            min-width: 72px; font-size: 14px; font-weight: 700; color: var(--primary);
+            padding-top: 6px; text-align: center; background: white; border-radius: 8px;
+            padding: 8px 4px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .roadmap-items { flex: 1; display: flex; flex-wrap: wrap; gap: 8px; }
+        .roadmap-item {
+            padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 500;
+            border: 1px solid; line-height: 1.5; max-width: 280px;
+        }
+        .roadmap-item.national { background: #fde8e811; border-color: #e74c3c44; color: #c0392b; }
+        .roadmap-item.province { background: #e8f0fe11; border-color: #3498db44; color: #2471a3; }
+        .roadmap-item.city { background: #e8f8e811; border-color: #27ae6044; color: #1e8449; }
+        .roadmap-item.district { background: #f3e8fd11; border-color: #8e44ad44; color: #6c3483; }
+
+        /* ===== Unit Summary ===== */
+        .unit-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px; margin-top: 20px;
+        }
+        .unit-card {
+            background: white; border-radius: 10px; padding: 18px 20px;
+            border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .unit-card .unit-name { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .unit-card .unit-count {
+            font-size: 24px; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .unit-card .unit-desc { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+        /* ===== Lifecycle Bar ===== */
+        .lifecycle-bar {
+            margin-top: 20px; padding: 20px 24px; background: #f8f9fc;
+            border-radius: 10px; border: 1px solid var(--border);
+        }
+        .lifecycle-bar h4 { font-size: 14px; color: var(--primary); margin-bottom: 16px; font-weight: 600; }
+        .lifecycle-steps { display: flex; gap: 0; position: relative; }
+        .lifecycle-step { flex: 1; text-align: center; position: relative; padding: 0 4px; }
+        .lifecycle-step .bar { height: 8px; border-radius: 4px; margin-bottom: 10px; }
+        .lifecycle-step:nth-child(1) .bar { background: #3498db; }
+        .lifecycle-step:nth-child(2) .bar { background: #9b59b6; }
+        .lifecycle-step:nth-child(3) .bar { background: #27ae60; }
+        .lifecycle-step:nth-child(4) .bar { background: #e74c3c; }
+        .lifecycle-step .step-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+        .lifecycle-step .step-pct {
+            font-size: 18px; font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        /* ===== Contact Bar ===== */
+        .contact-bar {
+            margin-top: 20px; padding: 16px 28px; background: white;
+            border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border); display: flex;
+            align-items: center; gap: 28px; flex-wrap: wrap;
+        }
+        .contact-bar-title {
+            font-size: 14px; font-weight: 700; color: var(--primary);
+            white-space: nowrap; padding-right: 12px; border-right: 2px solid var(--border);
+        }
+        .contact-bar-name { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
+        .contact-bar-info { font-size: 13px; color: var(--text); }
+        .contact-bar-info .cb-label { color: var(--text-light); margin-right: 4px; }
+        .contact-bar-info a { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 15px; }
+        .contact-bar-info a:hover { color: var(--accent); }
+        .contact-bar-sep { width: 1px; height: 28px; background: var(--border); }
+
+        /* ===== Collapse Sections ===== */
+        .collapse-group {
+            margin-top: 48px; padding-top: 32px; border-top: 2px dashed var(--border);
+        }
+        .collapse-group-title {
+            font-size: 16px; font-weight: 600; color: var(--text-light);
+            margin-bottom: 16px; text-align: center; letter-spacing: 2px;
+        }
+        .collapse-section {
+            margin-bottom: 12px; border-radius: 12px; overflow: hidden;
+            background: var(--card-bg); box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+        .collapse-section summary {
+            padding: 18px 28px; cursor: pointer; font-size: 16px; font-weight: 600;
+            color: var(--primary); display: flex; align-items: center; gap: 12px;
+            list-style: none; border-left: 4px solid var(--accent); transition: background 0.2s;
+        }
+        .collapse-section summary::-webkit-details-marker { display: none; }
+        .collapse-section summary:hover { background: #f8f9fc; }
+        .collapse-section summary::before {
+            content: '\25B6'; font-size: 12px; color: var(--accent);
+            transition: transform 0.3s; flex-shrink: 0;
+        }
+        .collapse-section[open] summary::before { transform: rotate(90deg); }
+        .collapse-section[open] summary { border-bottom: 1px solid var(--border); background: #f8f9fc; }
+        .collapse-section .collapse-body { padding: 24px 28px; animation: fadeSlideIn 0.3s ease; }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary); color: rgba(255,255,255,0.7);
+            text-align: center; padding: 24px; font-size: 13px;
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            .header, .nav, .filter-bar { position: static; }
+            .section { page-break-inside: avoid; }
+            .collapse-section { break-inside: avoid; }
+            .mobile-cards { display: none !important; }
+        }
+
+        /* ================================================================
+           RESPONSIVE BREAKPOINTS
+           ================================================================ */
+
+        /* ===== Tablet & Small Desktop (≤1024px) ===== */
+        @media (max-width: 1024px) {
+            .container { padding: 20px 20px 48px; }
+            .header-inner { padding: 16px 20px; flex-direction: column; gap: 6px; align-items: flex-start; }
+            .header h1 { font-size: 20px; }
+            .header h1 span { display: block; margin-left: 0; margin-top: 4px; font-size: 14px; }
+            .header-meta { font-size: 12px; }
+            .nav-inner { padding: 0 12px; }
+            .nav a { padding: 12px 16px; font-size: 13px; }
+
+            /* Hide desktop table, show mobile cards */
+            .table-wrapper { display: none; }
+            .mobile-cards { display: block; }
+
+            .section-title { font-size: 18px; }
+            .section-title .icon { width: 28px; height: 28px; font-size: 14px; }
+
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stat-card { padding: 18px; }
+            .stat-card .stat-num { font-size: 28px; }
+
+            .roadmap-quarter { flex-direction: column; gap: 8px; }
+            .roadmap-label {
+                min-width: auto; text-align: left; padding: 8px 14px;
+                display: flex; gap: 8px; align-items: center;
+            }
+            .roadmap-item { max-width: 100%; }
+
+            .unit-summary { grid-template-columns: repeat(2, 1fr); }
+
+            .card { padding: 20px 22px; }
+            .collapse-section summary { padding: 16px 20px; font-size: 15px; }
+            .collapse-section .collapse-body { padding: 20px; }
+            .timeline { padding-left: 24px; }
+            .timeline-item { padding: 14px 18px; }
+        }
+
+        /* ===== Mobile (≤768px) ===== */
+        @media (max-width: 768px) {
+            .container { padding: 16px 12px 40px; }
+            .header-inner { padding: 14px 16px; }
+            .header h1 { font-size: 18px; }
+            .header h1 span { font-size: 13px; }
+            .nav-inner { padding: 0 8px; }
+            .nav a { padding: 10px 14px; font-size: 12px; }
+
+            .section { margin-bottom: 28px; }
+            .section-title { font-size: 17px; margin-bottom: 16px; padding-bottom: 10px; }
+
+            .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+            .stat-card { padding: 14px 10px; }
+            .stat-card .stat-num { font-size: 24px; }
+            .stat-card .stat-label { font-size: 11px; }
+
+            .filter-bar { gap: 6px; margin-bottom: 16px; }
+            .filter-btn { padding: 6px 14px; font-size: 12px; min-height: 40px; }
+
+            .m-project-card { margin-bottom: 14px; }
+            .m-project-card .m-card-header { padding: 14px 14px 10px; }
+            .m-project-card .m-card-header .m-title { font-size: 14px; }
+            .m-project-card .m-card-body { padding: 2px 14px 14px; }
+            .m-field { padding: 8px 0; font-size: 13px; }
+            .m-field .m-label { min-width: 70px; max-width: 70px; font-size: 11px; }
+
+            .roadmap-quarter { margin-bottom: 10px; }
+            .roadmap-items { gap: 6px; }
+            .roadmap-item { font-size: 11px; padding: 6px 10px; }
+
+            .unit-summary { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .unit-card { padding: 14px 16px; }
+            .unit-card .unit-count { font-size: 20px; }
+            .unit-card .unit-name { font-size: 12px; }
+            .unit-card .unit-desc { font-size: 11px; }
+
+            .card { padding: 18px 16px; border-radius: 10px; }
+            .card h3 { font-size: 15px; margin-bottom: 10px; }
+            .card p { font-size: 14px; line-height: 1.75; }
+
+            .contact-bar {
+                flex-direction: column; align-items: flex-start;
+                gap: 10px; padding: 14px 18px;
+            }
+            .contact-bar-sep { display: none; }
+            .contact-bar-name { font-size: 16px; }
+
+            .lifecycle-bar { padding: 16px 14px; }
+            .lifecycle-step .step-label { font-size: 11px; }
+            .lifecycle-step .step-pct { font-size: 15px; }
+
+            .info-grid { grid-template-columns: 1fr; gap: 12px; }
+            .info-item { padding: 16px 18px; }
+            .info-item .value { font-size: 14px; }
+
+            .biz-grid { grid-template-columns: 1fr; gap: 12px; }
+
+            .badge-group { gap: 6px; }
+            .badge { padding: 6px 12px; font-size: 12px; }
+
+            .collapse-section summary { padding: 14px 16px; font-size: 14px; }
+            .collapse-section .collapse-body { padding: 16px; }
+
+            .timeline { padding-left: 20px; }
+            .timeline::before { left: 6px; }
+            .timeline-item { padding: 12px 16px; margin-bottom: 16px; }
+            .timeline-item::before { left: -20px; width: 12px; height: 12px; top: 20px; }
+
+            .footer { padding: 18px 12px; font-size: 12px; }
+        }
+
+        /* ===== Small Mobile (≤480px) ===== */
+        @media (max-width: 480px) {
+            .container { padding: 12px 8px 32px; }
+            .header-inner { padding: 12px 12px; }
+            .header h1 { font-size: 16px; }
+            .header h1 span { font-size: 12px; }
+            .header-meta { font-size: 11px; }
+            .nav a { padding: 10px 12px; font-size: 11px; }
+
+            .section-title { font-size: 15px; gap: 8px; }
+            .section-title .icon { width: 24px; height: 24px; font-size: 12px; border-radius: 6px; }
+
+            .stats-bar { gap: 8px; margin-bottom: 16px; }
+            .stat-card { padding: 12px 8px; }
+            .stat-card .stat-num { font-size: 20px; }
+            .stat-card .stat-label { font-size: 10px; }
+
+            .filter-btn { padding: 5px 10px; font-size: 11px; min-height: 36px; }
+
+            .m-project-card .m-card-header { padding: 12px 12px 8px; }
+            .m-project-card .m-card-header .m-title { font-size: 13px; }
+            .m-project-card .m-card-body { padding: 0 12px 12px; }
+            .m-field { padding: 7px 0; font-size: 12px; }
+            .m-field .m-label { min-width: 62px; max-width: 62px; font-size: 10px; }
+            .m-field .m-value.amount { font-size: 14px; }
+
+            .roadmap-label { padding: 6px 10px; font-size: 12px; }
+            .roadmap-item { font-size: 10px; padding: 5px 8px; }
+
+            .unit-summary { grid-template-columns: 1fr; }
+
+            .card { padding: 14px 12px; }
+            .card h3 { font-size: 14px; }
+            .card p { font-size: 13px; }
+
+            .lifecycle-step .step-label { font-size: 10px; }
+            .lifecycle-step .step-pct { font-size: 14px; }
+
+            .contact-bar { padding: 12px 14px; }
+            .contact-bar-title { font-size: 13px; }
+            .contact-bar-name { font-size: 15px; }
+            .contact-bar-info { font-size: 12px; }
+
+            .info-item { padding: 14px 14px; }
+            .info-item .label { font-size: 10px; }
+            .info-item .value { font-size: 13px; }
+
+            .badge { padding: 5px 10px; font-size: 11px; }
+            .badge-group { gap: 5px; }
+
+            .collapse-section summary { padding: 12px 14px; font-size: 13px; gap: 8px; }
+            .collapse-section .collapse-body { padding: 14px 12px; }
+
+            .timeline { padding-left: 16px; }
+            .timeline-item { padding: 10px 12px; }
+            .timeline-item .year { font-size: 12px; }
+            .timeline-item h4 { font-size: 13px; }
+            .timeline-item p { font-size: 12px; }
+
+            .footer { font-size: 11px; padding: 16px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== Header + Nav ===== -->
+<div class="header">
+    <div class="header-inner">
+        <h1>拓鑫智连（三台）科技有限公司 <span>2027年度奖补项目申报清单</span></h1>
+        <div class="header-meta">编制日期：2026年10月23日 &nbsp;|&nbsp; 四川省绵阳市三台县 &nbsp;|&nbsp; 鑫科材料（600255）参股体系</div>
+    </div>
+    <div class="nav">
+        <div class="nav-inner">
+            <a href="#projects" class="active">可申报项目清单</a>
+            <a href="#policy">政策依据汇总</a>
+            <a href="#tips">重要提示</a>
+            <a href="#company">企业详情 &#9660;</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ═══ 首屏核心板块 ═══ -->
+
+    <!-- ===== 1. 可申报项目清单 ===== -->
+    <div class="section" id="projects">
+        <div class="section-title">
+            <div class="icon">1</div>
+            2027年可申报奖补项目清单
+        </div>
+
+        <!-- 统计摘要 -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-num">6</div>
+                <div class="stat-label">可申报项目总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">~970</div>
+                <div class="stat-label">预计奖补总额（万元）</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">2</div>
+                <div class="stat-label">国家级项目</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">4</div>
+                <div class="stat-label">省/市/区级项目</div>
+            </div>
+        </div>
+
+        <!-- 层级筛选 -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTable('all')">全部</button>
+            <button class="filter-btn" onclick="filterTable('national')">国家级</button>
+            <button class="filter-btn" onclick="filterTable('province')">省级</button>
+            <button class="filter-btn" onclick="filterTable('city')">市级</button>
+            <button class="filter-btn" onclick="filterTable('district')">区级</button>
+        </div>
+
+        <!-- 桌面端：数据表格 -->
+        <div class="table-wrapper" id="tableWrapper" style="display:none">
+            <table id="projectTable">
+                <thead>
+                    <tr>
+                        <th style="width:40px">序号</th>
+                        <th style="min-width:180px">可申报项目名称</th>
+                        <th style="min-width:100px">项目类别</th>
+                        <th style="min-width:110px">归口部门</th>
+                        <th style="min-width:80px">申报层级</th>
+                        <th style="min-width:80px">申报周期</th>
+                        <th style="min-width:100px">预计奖补金额（万元）</th>
+                        <th style="min-width:120px">关键技术方向</th>
+                        <th style="min-width:220px">申报核心条件</th>
+                        <th style="min-width:200px">所需材料</th>
+                        <th style="min-width:200px">政策依据（官方文件）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-level="national">
+                        <td data-label="序号">1</td>
+                        <td data-label="项目名称"><strong>国家中小企业数字化转型城市试点（绵阳）——试点企业数字化改造补助</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">数字化转型</span></td>
+                        <td data-label="归口部门">绵阳市经信局、市财政局（中央财政专项）</td>
+                        <td data-label="申报层级"><span class="level-tag level-national">国家级</span></td>
+                        <td data-label="申报周期">2026年11月—2027年5月分批</td>
+                        <td data-label="预计奖补" class="amount">50-100</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">数据采集传输设备</span>
+                            <span class="tech-tag sw">工业软件·云服务</span>
+                            <span class="tech-tag ai">AI视觉检测</span>
+                        </td>
+                        <td data-label="核心条件">1.在绵阳市注册并具独立法人资格的工业中小企业，工厂所在地与改造实施地均在绵阳辖区；2.属电子元器件制造试点细分行业；3.已列入市级试点入库企业名单（2026年4月1日—9月30日批次）；4.改造后按工信部《中小企业数字化水平评测指标》评测达二级及以上；5.先改先得、早改多得，专项资金按申请顺序用完即止</td>
+                        <td data-label="所需材料">试点企业申报书与数字化改造方案、评估诊断报告、软件及云服务与数据采集设备合同发票付款凭证、数字化水平自评报告、第三方评测验收申请</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://jxj.my.gov.cn/mysjxj/c100405/202604/bc89cfc9e2d24d5b9b426ddcfb2a3b8a.shtml" target="_blank" rel="noopener">绵经信办〔2026〕61号《绵阳市支持开展国家制造业新型技术改造城市试点和国家中小企业数字化转型城市试点若干政策措施》<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td data-label="序号">2</td>
+                        <td data-label="项目名称"><strong>国家制造业新型技术改造城市试点（绵阳）——"点"上数字化智能化改造项目</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">技术改造</span></td>
+                        <td data-label="归口部门">绵阳市经信局（工信部批复试点）</td>
+                        <td data-label="申报层级"><span class="level-tag level-national">国家级</span></td>
+                        <td data-label="申报周期">9—10月（年度批次集中报送）</td>
+                        <td data-label="预计奖补" class="amount">450-700</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">智能成型与检测装备</span>
+                            <span class="tech-tag sw">MES·产品追溯</span>
+                            <span class="tech-tag ai">工艺参数智能优化</span>
+                        </td>
+                        <td data-label="核心条件">1.属工信部批复的电子信息试点行业，且申报项目在截止日期前纳入绵阳市工业投资统计；2."点"上项目总投资（不含土建）不低于5,000万元（含内外网改造及软件类投资）；3.项目于2023年5月以来取得备案、审批或核准，建设周期原则上不超过3年，投资进度不低于30%；4.须于2027年11月前完成项目验收；5.同一企业只能申报一个项目，已获得中央财政资金支持或省技改试点资金的项目不重复支持</td>
+                        <td data-label="所需材料">项目备案（核准）文件、安全环保消防节能审查手续、设备与内外网及工业软件投资合同清单与票据明细、上年度审计报告与最新财务报表、纳统佐证材料、专项信用报告、项目申请报告</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://jxj.my.gov.cn/mysjxj/c100383/202609/168a4b53fb7343d2986daf6f0b8c5db8.shtml" target="_blank" rel="noopener">绵经信技改〔2026〕180号《关于组织开展绵阳市制造业新型技术改造城市试点项目申报工作的通知》<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td data-label="序号">3</td>
+                        <td data-label="项目名称"><strong>四川省工业领域设备更新和技术改造"智改数转"项目（切块资金项目）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">智能制造</span></td>
+                        <td data-label="归口部门">四川省经济和信息化厅</td>
+                        <td data-label="申报层级"><span class="level-tag level-province">省级</span></td>
+                        <td data-label="申报周期">1—2月入库，3月17日前市州推荐</td>
+                        <td data-label="预计奖补" class="amount">160-300</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">设备联网·边缘网关</span>
+                            <span class="tech-tag sw">工业APP·制造执行</span>
+                            <span class="tech-tag ai">智能排产与质检</span>
+                        </td>
+                        <td data-label="核心条件">1.在川登记注册、依法纳税、具有独立法人资格，截止申报之日在川登记注册满2年（企业自2026年11月起满足）；2.须先完成当年度"智改数转"项目入库储备，未入库不得申报资金；3.计入投资范围限于设备（含软件），厂房建设与装修等基础设施支出不得计入；4.获得过省级专项资金支持的项目不再申报入库，每个建设单位仅可入库1个项目；5.近3年无重大安全、环保事故，未列入失信联合惩戒对象名单</td>
+                        <td data-label="所需材料">四川省工业项目（资金）管理平台线上申报书、项目备案文件、设备（含软件）投资明细与票据、智改数转评估诊断材料、专项信用报告、真实性承诺函</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://jxt.sc.gov.cn/scjxt/wjfb/2026/1/23/134f980e650645b684b7be3b22f8d8fa.shtml" target="_blank" rel="noopener">川经信办函〔2026〕18号《关于做好2026年四川省工业领域设备更新和技术改造"智改数转"项目入库申报工作的通知》<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td data-label="序号">4</td>
+                        <td data-label="项目名称"><strong>四川省激励企业加大研发投入补助（研发投入增量后补助）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">科技创新</span></td>
+                        <td data-label="归口部门">四川省科技厅、财政厅、统计局</td>
+                        <td data-label="申报层级"><span class="level-tag level-province">省级</span></td>
+                        <td data-label="申报周期">6—7月（全程网上申报）</td>
+                        <td data-label="预计奖补" class="amount">20-50</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">800G/1.6T有源铜缆</span>
+                            <span class="tech-tag sw">信号完整性仿真</span>
+                            <span class="tech-tag ai">链路自动调测</span>
+                        </td>
+                        <td data-label="核心条件">1.在川依法注册满2年及以上、具有独立法人资格；2.为有效国家高新技术企业或上年度评价入库的科技型中小企业；3.申报周期内纳入国家统计局企业一套表统计调查制度并报送企业研发年报；4.年度研发投入增量不低于300万元；5.以税务加计扣除数据与统计研发数据孰低核定，按增量分档给予不超过20/50/100/300万元补助</td>
+                        <td data-label="所需材料">四川省企业研发投入补助申请表、企业所得税年度纳税申报表（A类）主表及研发投入加计扣除优惠明细表与电子税务局截图、研发统计年报报表、申报周期内各年度财务报表</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://www.sc.gov.cn/scszfgb/1402/2642/2658/202609/MIT114428.shtml" target="_blank" rel="noopener">川科产〔2026〕5号《四川省激励企业加大研发投入暂行办法》<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td data-label="序号">5</td>
+                        <td data-label="项目名称"><strong>"川行天下"国际市场拓展支持（境外展会与出口产品认证补助）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">市场拓展</span></td>
+                        <td data-label="归口部门">四川省商务厅、财政厅</td>
+                        <td data-label="申报层级"><span class="level-tag level-province">省级</span></td>
+                        <td data-label="申报周期">全年分批（名单1月发布，展前报备）</td>
+                        <td data-label="预计奖补" class="amount">10-25</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">高速铜缆组件出口</span>
+                            <span class="tech-tag sw">线上营销·独立站</span>
+                        </td>
+                        <td data-label="核心条件">1.参加列入年度"川行天下"支持展会活动名单的境内外展会（名单覆盖电子信息、线缆线材、人工智能等超60个行业类别）；2.知名展会按实际展位费85%支持，单个企业单场最高18平方米、10万元；重点展会按80%支持，最高9万元；3.由商务厅公开征选机构组展或企业自行参展，须在展前、展后履行报备与总结手续；4.开展出口产品和服务认证、完善国际营销服务体系、布局线上营销渠道可同时纳入支持</td>
+                        <td data-label="所需材料">参展申请与组展单位报备材料、展位合同与展位费发票、境外产品认证及国际营销服务费用票据、订单履约与贸易成效说明</td>
+                        <td data-label="政策依据" class="policy-ref"><a href="https://swt.sc.gov.cn/sccom/c109021/2026/1/29/da742238bf28435693c41b021b4694f8.shtml" target="_blank" rel="noopener">川商贸促〔2026〕2号《2026年"川行天下"支持的展会活动名单》<span class="ext-icon">&#8599;</span></a></td>
+                    </tr>
+                    <tr data-level="city">
+                        <td data-label="序号">6</td>
+                        <td data-label="项目名称"><strong>绵阳市加大关键核心技术攻关奖励（核心基础元器件方向）</strong></td>
+                        <td data-label="项目类别"><span class="category-tag">科技创新</span></td>
+                        <td data-label="归口部门">绵阳市经济和信息化局</td>
+                        <td data-label="申报层级"><span class="level-tag level-city">市级</span></td>
+                        <td data-label="申报周期">5月（随年度专项资金申报指南）</td>
+                        <td data-label="预计奖补" class="amount">30-50</td>
+                        <td data-label="技术方向">
+                            <span class="tech-tag hw">连接器与线缆组件</span>
+                            <span class="tech-tag sw">仿真设计软件</span>
+                            <span class="tech-tag ai">测试数据联动分析</span>
+                        </td>
+                        <td data-label="核心条件">1.在绵注册、依法纳税、具有独立法人资格的工业企业；2.面向核心基础元器件、先进基础工艺等方向开展攻关，且项目具备产业化条件；3.经评审后给予不超过100万元一次性奖励；4.与绵阳市已出台政策重复或同一事项适用多项优惠政策的，按"就高不就低、不重复享受"执行；5.近3年未发生重大安全、环保事故，未列入失信联合惩戒对象名单</td>
+                        <td data-label="所需材料">关键核心技术攻关项目申报书、技术成果与产业化证明（首批用户订单、销售发票、检测报告）、发明专利等知识产权证书、上年度审计报告、专项信用报告</td>
+                        <td data-label="政策依据" class="policy-ref">绵办规〔2025〕3号《绵阳市推进新型工业化高质量发展若干政策措施》；绵经信综合〔2026〕81号《2025年度新型工业化高质量发展专项资金申报指南》</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 移动端：卡片视图 -->
+        <div class="mobile-cards" id="mobileCards" style="display:none">
+            <div class="m-project-card" data-level="national">
+                <div class="m-card-header">
+                    <div class="m-seq">1</div>
+                    <div class="m-title">国家中小企业数字化转型城市试点（绵阳）——试点企业数字化改造补助</div>
+                    <span class="level-tag level-national">国家级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">数字化转型</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">绵阳市经信局、市财政局（中央财政专项）</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">2026年11月—2027年5月分批</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">50-100万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">数据采集传输设备</span>
+                        <span class="tech-tag sw">工业软件·云服务</span>
+                        <span class="tech-tag ai">AI视觉检测</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.在绵阳市注册并具独立法人资格的工业中小企业，工厂所在地与改造实施地均在绵阳辖区；2.属电子元器件制造试点细分行业；3.已列入市级试点入库企业名单（2026年4月1日—9月30日批次）；4.改造后按工信部《中小企业数字化水平评测指标》评测达二级及以上；5.先改先得、早改多得，专项资金按申请顺序用完即止</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">试点企业申报书与数字化改造方案、评估诊断报告、软件及云服务与数据采集设备合同发票付款凭证、数字化水平自评报告、第三方评测验收申请</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://jxj.my.gov.cn/mysjxj/c100405/202604/bc89cfc9e2d24d5b9b426ddcfb2a3b8a.shtml" target="_blank" rel="noopener">绵经信办〔2026〕61号《绵阳市支持开展国家制造业新型技术改造城市试点和国家中小企业数字化转型城市试点若干政策措施》<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="national">
+                <div class="m-card-header">
+                    <div class="m-seq">2</div>
+                    <div class="m-title">国家制造业新型技术改造城市试点（绵阳）——"点"上数字化智能化改造项目</div>
+                    <span class="level-tag level-national">国家级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">技术改造</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">绵阳市经信局（工信部批复试点）</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">9—10月（年度批次集中报送）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">450-700万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">智能成型与检测装备</span>
+                        <span class="tech-tag sw">MES·产品追溯</span>
+                        <span class="tech-tag ai">工艺参数智能优化</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.属工信部批复的电子信息试点行业，且申报项目在截止日期前纳入绵阳市工业投资统计；2."点"上项目总投资（不含土建）不低于5,000万元（含内外网改造及软件类投资）；3.项目于2023年5月以来取得备案、审批或核准，建设周期原则上不超过3年，投资进度不低于30%；4.须于2027年11月前完成项目验收；5.同一企业只能申报一个项目，已获得中央财政资金支持或省技改试点资金的项目不重复支持</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">项目备案（核准）文件、安全环保消防节能审查手续、设备与内外网及工业软件投资合同清单与票据明细、上年度审计报告与最新财务报表、纳统佐证材料、专项信用报告、项目申请报告</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://jxj.my.gov.cn/mysjxj/c100383/202609/168a4b53fb7343d2986daf6f0b8c5db8.shtml" target="_blank" rel="noopener">绵经信技改〔2026〕180号《关于组织开展绵阳市制造业新型技术改造城市试点项目申报工作的通知》<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="province">
+                <div class="m-card-header">
+                    <div class="m-seq">3</div>
+                    <div class="m-title">四川省工业领域设备更新和技术改造"智改数转"项目（切块资金项目）</div>
+                    <span class="level-tag level-province">省级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">智能制造</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">四川省经济和信息化厅</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">1—2月入库，3月17日前市州推荐</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">160-300万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">设备联网·边缘网关</span>
+                        <span class="tech-tag sw">工业APP·制造执行</span>
+                        <span class="tech-tag ai">智能排产与质检</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.在川登记注册、依法纳税、具有独立法人资格，截止申报之日在川登记注册满2年（企业自2026年11月起满足）；2.须先完成当年度"智改数转"项目入库储备，未入库不得申报资金；3.计入投资范围限于设备（含软件），厂房建设与装修等基础设施支出不得计入；4.获得过省级专项资金支持的项目不再申报入库，每个建设单位仅可入库1个项目；5.近3年无重大安全、环保事故，未列入失信联合惩戒对象名单</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">四川省工业项目（资金）管理平台线上申报书、项目备案文件、设备（含软件）投资明细与票据、智改数转评估诊断材料、专项信用报告、真实性承诺函</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://jxt.sc.gov.cn/scjxt/wjfb/2026/1/23/134f980e650645b684b7be3b22f8d8fa.shtml" target="_blank" rel="noopener">川经信办函〔2026〕18号《关于做好2026年四川省工业领域设备更新和技术改造"智改数转"项目入库申报工作的通知》<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="province">
+                <div class="m-card-header">
+                    <div class="m-seq">4</div>
+                    <div class="m-title">四川省激励企业加大研发投入补助（研发投入增量后补助）</div>
+                    <span class="level-tag level-province">省级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">科技创新</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">四川省科技厅、财政厅、统计局</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">6—7月（全程网上申报）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">20-50万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">800G/1.6T有源铜缆</span>
+                        <span class="tech-tag sw">信号完整性仿真</span>
+                        <span class="tech-tag ai">链路自动调测</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.在川依法注册满2年及以上、具有独立法人资格；2.为有效国家高新技术企业或上年度评价入库的科技型中小企业；3.申报周期内纳入国家统计局企业一套表统计调查制度并报送企业研发年报；4.年度研发投入增量不低于300万元；5.以税务加计扣除数据与统计研发数据孰低核定，按增量分档给予不超过20/50/100/300万元补助</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">四川省企业研发投入补助申请表、企业所得税年度纳税申报表（A类）主表及研发投入加计扣除优惠明细表与电子税务局截图、研发统计年报报表、申报周期内各年度财务报表</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://www.sc.gov.cn/scszfgb/1402/2642/2658/202609/MIT114428.shtml" target="_blank" rel="noopener">川科产〔2026〕5号《四川省激励企业加大研发投入暂行办法》<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="province">
+                <div class="m-card-header">
+                    <div class="m-seq">5</div>
+                    <div class="m-title">"川行天下"国际市场拓展支持（境外展会与出口产品认证补助）</div>
+                    <span class="level-tag level-province">省级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">市场拓展</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">四川省商务厅、财政厅</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">全年分批（名单1月发布，展前报备）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">10-25万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">高速铜缆组件出口</span>
+                        <span class="tech-tag sw">线上营销·独立站</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.参加列入年度"川行天下"支持展会活动名单的境内外展会（名单覆盖电子信息、线缆线材、人工智能等超60个行业类别）；2.知名展会按实际展位费85%支持，单个企业单场最高18平方米、10万元；重点展会按80%支持，最高9万元；3.由商务厅公开征选机构组展或企业自行参展，须在展前、展后履行报备与总结手续；4.开展出口产品和服务认证、完善国际营销服务体系、布局线上营销渠道可同时纳入支持</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">参展申请与组展单位报备材料、展位合同与展位费发票、境外产品认证及国际营销服务费用票据、订单履约与贸易成效说明</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref"><a href="https://swt.sc.gov.cn/sccom/c109021/2026/1/29/da742238bf28435693c41b021b4694f8.shtml" target="_blank" rel="noopener">川商贸促〔2026〕2号《2026年"川行天下"支持的展会活动名单》<span class="ext-icon">&#8599;</span></a></div></div>
+                </div>
+            </div>
+            <div class="m-project-card" data-level="city">
+                <div class="m-card-header">
+                    <div class="m-seq">6</div>
+                    <div class="m-title">绵阳市加大关键核心技术攻关奖励（核心基础元器件方向）</div>
+                    <span class="level-tag level-city">市级</span>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-field"><div class="m-label">项目类别</div><div class="m-value"><span class="category-tag">科技创新</span></div></div>
+                    <div class="m-field"><div class="m-label">归口部门</div><div class="m-value">绵阳市经济和信息化局</div></div>
+                    <div class="m-field"><div class="m-label">申报周期</div><div class="m-value">5月（随年度专项资金申报指南）</div></div>
+                    <div class="m-field"><div class="m-label">预计奖补</div><div class="m-value amount">30-50万元</div></div>
+                    <div class="m-field"><div class="m-label">技术方向</div><div class="m-value">
+                        <span class="tech-tag hw">连接器与线缆组件</span>
+                        <span class="tech-tag sw">仿真设计软件</span>
+                        <span class="tech-tag ai">测试数据联动分析</span>
+                    </div></div>
+                    <div class="m-field"><div class="m-label">核心条件</div><div class="m-value">1.在绵注册、依法纳税、具有独立法人资格的工业企业；2.面向核心基础元器件、先进基础工艺等方向开展攻关，且项目具备产业化条件；3.经评审后给予不超过100万元一次性奖励；4.与绵阳市已出台政策重复或同一事项适用多项优惠政策的，按"就高不就低、不重复享受"执行；5.近3年未发生重大安全、环保事故，未列入失信联合惩戒对象名单</div></div>
+                    <div class="m-field"><div class="m-label">所需材料</div><div class="m-value">关键核心技术攻关项目申报书、技术成果与产业化证明（首批用户订单、销售发票、检测报告）、发明专利等知识产权证书、上年度审计报告、专项信用报告</div></div>
+                    <div class="m-field"><div class="m-label">政策依据</div><div class="m-value policy-ref">绵办规〔2025〕3号《绵阳市推进新型工业化高质量发展若干政策措施》；绵经信综合〔2026〕81号《2025年度新型工业化高质量发展专项资金申报指南》</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 申报规划路线图 -->
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 17px; color: var(--primary); margin-bottom: 14px;">&#128197; 申报规划路线图（按时间窗口）</h3>
+            <div class="roadmap">
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">启动期<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">2026年10—12月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national"><strong>&#9312;</strong> 数字化改造方案定稿并启动实施，按批次申请评测验收（先改先得、资金用完即止）<br><span style="opacity:0.7">2026年11月起 | 绵阳市经信局</span></div>
+                        <div class="roadmap-item national"><strong>&#9313;</strong> 扩建产线项目完成备案并纳入绵阳市工业投资统计<br><span style="opacity:0.7">2026年内 | 三台县工信局</span></div>
+                        <div class="roadmap-item province"><strong>&#9314;</strong> 梳理设备（含软件）计入投资范围，单独立项办理技改备案<br><span style="opacity:0.7">2026年内 | 省经信厅</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q1<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">1-3月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province"><strong>&#9312;</strong> 四川省"智改数转"项目入库申报<br><span style="opacity:0.7">1—2月线上填报，3月17日前市州推荐 | 省经信厅</span></div>
+                        <div class="roadmap-item national"><strong>&#9312;</strong> 数字化转型改造完成并提交第三方评测验收<br><span style="opacity:0.7">截至2027年5月 | 绵阳市经信局</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q2<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">4-6月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item city"><strong>&#9312;</strong> 关键核心技术攻关奖励申报<br><span style="opacity:0.7">5月报送 | 绵阳市经信局</span></div>
+                        <div class="roadmap-item province"><strong>&#9312;</strong> 省企业研发投入补助网上申报<br><span style="opacity:0.7">6—7月 | 科技厅、财政厅</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q3<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">7-9月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province"><strong>&#9312;</strong> "智改数转"项目评审与资金下达跟踪<br><span style="opacity:0.7">省经信厅、市经信局</span></div>
+                        <div class="roadmap-item national"><strong>&#9313;</strong> 完善项目票据与投资明细台账，准备年度批次申报材料<br><span style="opacity:0.7">绵阳市经信局</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q4<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">10-12月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national"><strong>&#9313;</strong> 制造业新型技术改造城市试点项目集中报送<br><span style="opacity:0.7">9—10月（参考10月中旬前）| 市经信局技改投资科</span></div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">全年<br><span style="font-size:11px;font-weight:400;color:var(--text-light)">持续</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province"><strong>&#9315;</strong> "川行天下"名单内境外展会参展与出口产品认证补助<br><span style="opacity:0.7">展前报备、展后总结 | 省商务厅</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 归口部门项目分布 -->
+        <div style="margin-top: 30px;">
+            <h3 style="font-size: 17px; color: var(--primary); margin-bottom: 14px;">&#127970; 归口部门项目分布</h3>
+            <div class="unit-summary">
+                <div class="unit-card">
+                    <div class="unit-name">绵阳市经济和信息化局</div>
+                    <div class="unit-count">3</div>
+                    <div class="unit-desc">数字化转型试点 / 新型技改试点 / 核心技术攻关</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">四川省经济和信息化厅</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">"智改数转"项目</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">四川省科学技术厅</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">企业研发投入补助</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-name">四川省商务厅</div>
+                    <div class="unit-count">1</div>
+                    <div class="unit-desc">"川行天下"国际市场拓展</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 2. 政策依据汇总 ===== -->
+    <div class="section" id="policy">
+        <div class="section-title">
+            <div class="icon">2</div>
+            政策依据汇总
+        </div>
+
+        <div class="card policy-card">
+            <h3>国家级与国家试点政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="https://jxj.my.gov.cn/mysjxj/c100405/202604/bc89cfc9e2d24d5b9b426ddcfb2a3b8a.shtml" target="_blank" rel="noopener">绵经信办〔2026〕61号《绵阳市支持开展国家制造业新型技术改造城市试点和国家中小企业数字化转型城市试点若干政策措施》<span class="ext-icon">&#8599;</span></a>（有效期至2027年12月31日）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> <a href="https://jxj.my.gov.cn/mysjxj/c105113/202512/27dee34730bb468f902b7b1997f1b55a.shtml" target="_blank" rel="noopener">绵财建〔2025〕206号《绵阳市中小企业数字化转型城市试点专项资金管理办法》<span class="ext-icon">&#8599;</span></a>（2026年1月5日施行，有效期至2027年12月31日）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> <a href="https://jxj.my.gov.cn/mysjxj/c100383/202609/168a4b53fb7343d2986daf6f0b8c5db8.shtml" target="_blank" rel="noopener">绵经信技改〔2026〕180号《关于组织开展绵阳市制造业新型技术改造城市试点项目申报工作的通知》<span class="ext-icon">&#8599;</span></a>（依据工信部规函〔2025〕122号批复）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px;">
+                    <strong>4.</strong> 财政部、工业和信息化部《关于开展中小企业数字化转型城市试点工作的通知》（财建〔2023〕117号）及《关于做好2025年中小企业数字化转型城市试点工作的通知》（财办建〔2025〕20号）
+                </div>
+            </div>
+        </div>
+
+        <div class="card policy-card">
+            <h3>四川省级政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> <a href="https://jxt.sc.gov.cn/scjxt/wjfb/2026/1/23/134f980e650645b684b7be3b22f8d8fa.shtml" target="_blank" rel="noopener">川经信办函〔2026〕18号《关于做好2026年四川省工业领域设备更新和技术改造"智改数转"项目入库申报工作的通知》<span class="ext-icon">&#8599;</span></a>
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> 《四川省加快制造业智能化改造数字化转型行动计划（2024—2027年）》（川办发〔2024〕43号）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>3.</strong> <a href="https://www.sc.gov.cn/scszfgb/1402/2642/2658/202609/MIT114428.shtml" target="_blank" rel="noopener">川科产〔2026〕5号《四川省激励企业加大研发投入暂行办法》<span class="ext-icon">&#8599;</span></a>（2026年6月7日施行，有效期2年）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px;">
+                    <strong>4.</strong> <a href="https://swt.sc.gov.cn/sccom/c109021/2026/1/29/da742238bf28435693c41b021b4694f8.shtml" target="_blank" rel="noopener">川商贸促〔2026〕2号《2026年"川行天下"支持的展会活动名单》<span class="ext-icon">&#8599;</span></a>（配套《"川行天下"国际市场拓展支持政策》川商贸促〔2026〕1号）
+                </div>
+            </div>
+        </div>
+
+        <div class="card policy-card">
+            <h3>绵阳市、三台县政策文件</h3>
+            <div style="margin-top: 12px; font-size: 14px; line-height: 2.2;">
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>1.</strong> 绵办规〔2025〕3号《绵阳市推进新型工业化高质量发展若干政策措施》（2025年8月7日施行，有效期5年）
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px; margin-bottom: 8px;">
+                    <strong>2.</strong> 绵经信综合〔2026〕81号《2025年度新型工业化高质量发展专项资金申报指南》
+                </div>
+                <div style="padding: 8px 12px; background: #fafafa; border-radius: 6px;">
+                    <strong>3.</strong> 《绵阳市中小企业数字化转型城市试点建设实施方案》（绵经信企业〔2025〕273号）及首批、第二批试点企业申报通知（绵经信企业〔2025〕282号、绵经信企业〔2026〕183号）
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 3. 重要提示 + 固定板块 ===== -->
+    <div class="section" id="tips">
+        <div class="card" style="background: #fffbeb; border-color: #f5deb3;">
+            <h3 style="color: #b8860b;">&#9888;&#65039; 重要提示</h3>
+            <p style="font-size: 13px; color: #8b7355; margin-top: 8px;">
+                本清单所列信息基于公开资料整理，仅供参考。具体申报条件、奖补金额和时间节点以各级主管部门发布的最新官方文件为准。建议企业密切关注四川省经济和信息化厅、科技厅、商务厅及绵阳市经济和信息化局的年度申报通知，提前做好材料准备。预计奖补金额为基于公开政策及企业实际投资规模的保守预估值，可能因政策调整而变化。
+            </p>
+            <!-- ▼▼▼ ⚠️ 固定板块：项目申报全生命周期 —— 所有企业完全一致，不可修改 ▼▼▼ -->
+            <div class="lifecycle-bar">
+                <h4>&#128203; 项目申报全生命周期</h4>
+                <div class="lifecycle-steps">
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">项目申报</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">评审批复</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step">
+                        <div class="bar"></div>
+                        <div class="step-label">资金下达</div>
+                        <div class="step-pct">20%</div>
+                    </div>
+                    <div class="lifecycle-step" style="flex: 2;">
+                        <div class="bar"></div>
+                        <div class="step-label">结项验收</div>
+                        <div class="step-pct">40%</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ▲▲▲ 固定板块结束 ▲▲▲ -->
+        </div>
+
+        <!-- ▼▼▼ ⚠️ 固定板块：项目咨询联系人 —— 所有企业完全一致，不可修改 ▼▼▼ -->
+        <div class="contact-bar">
+            <div class="contact-bar-title">&#128222; 项目咨询联系人</div>
+            <div class="contact-bar-name">赵璐红</div>
+            <div class="contact-bar-info">
+                <span class="cb-label">舍得酒业</span> &middot; 共享公共事务中心总经理
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">电话</span> <a href="tel:18884606786">18884606786</a>
+            </div>
+            <div class="contact-bar-sep"></div>
+            <div class="contact-bar-info">
+                <span class="cb-label">地址</span> 四川省成都市武侯区复地复城国际T1
+            </div>
+        </div>
+        <!-- ▲▲▲ 固定板块结束 ▲▲▲ -->
+    </div>
+
+    <!-- ═══ 折叠面板区域 ═══ -->
+
+    <div class="collapse-group" id="company">
+        <div class="collapse-group-title">&#9660; 企业详情（点击展开） &#9660;</div>
+
+        <!-- 企业概述 -->
+        <details class="collapse-section">
+            <summary>&#127970; 企业概述</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>拓鑫智连（三台）科技有限公司成立于2024年11月4日，注册于四川省绵阳市三台县潼川镇梓州产城新区创新科技孵化园，是安徽鑫科新材料股份有限公司（上交所主板 600255，实际控制人链条含三台县国有资产监督管理办公室）旗下四川鑫梓能科材料科技有限公司、新拓智芯（三台）电子技术合伙企业（有限合伙）与硅与光子（四川）科技有限公司（SI-PHOTONIX INVESTMENT PTE. LTD. 全资）共同出资设立的合资主体，主营面向AI应用的高速铜缆互连解决方案。公司依托股东方在高速光模块研发与复杂系统问题上的积累，专注800G、1.6T高速铜连接技术的演进与产业化。一期"ACC/AEC高速铜连接"项目2024年10月开工、2025年5月28日正式投产（约200天），建设2条800G与1条1.6T高速铜连接生产线，规划年产24万根ACC/AEC通信高速铜连接，达产后预计年产值5亿元；二期扩建计划于2026年三季度启动。公司系国家科技型中小企业、绵阳市中小企业数字化转型城市试点入库企业，并已规划深圳研发销售分支与马来西亚生产基地布局。</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">企业全称</div>
+                        <div class="value">拓鑫智连（三台）科技有限公司</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">统一社会信用代码</div>
+                        <div class="value">91510722MAE3YMRU8D</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">成立年份</div>
+                        <div class="value">2024年（11月4日）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册地</div>
+                        <div class="value">四川省绵阳市三台县潼川镇梓州产城新区创新科技孵化园9幢1-1</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">法定代表人</div>
+                        <div class="value">钮松（董事长）；谭军（经理、董事）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册资本 / 实缴资本</div>
+                        <div class="value">1,200万元 / 760万元</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">企业类型</div>
+                        <div class="value">有限责任公司（外商投资企业与内资合资）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">人员规模</div>
+                        <div class="value">参保13人（2025年报），少于50人，小型企业</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">股权结构</div>
+                        <div class="value">鑫梓能科41.67% / 新拓智芯38.33% / 硅与光子20%</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">纳税与进出口信用</div>
+                        <div class="value">增值税一般纳税人；2024年11月5日蓉绵关进出口货物收发货人备案</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">行业归属</div>
+                        <div class="value">电子元器件制造 / 通信设备制造（国标含电线电缆制造许可项目）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">在川注册年限</div>
+                        <div class="value">满2年（自2026年11月4日起，满足省级工业与科技类项目年限门槛）</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 主营业务 -->
+        <details class="collapse-section">
+            <summary>&#9881; 主营业务</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <p>公司主营适配智算中心、数据中心短距互联的高速铜连接系列产品，形成DAC、ACC、AEC三大系列全速率覆盖，并从源头自主布局线材研发自产与自研芯片，构建起"芯片研发—高速线缆生产—铜连接器模块一体化"的垂直整合制造体系。高速铜连接以低成本、低时延、低功耗支撑AI服务器与超算集群800G至1.6T的短距离传输，是算力基础设施的关键互连环节。目前DAC系列覆盖10G至1.6T全速率并均可量产；ACC系列400G/800G具备Semtech、Macom及自研三大主流芯片方案，1.6T与Marvell深度开发进入样品小批量阶段；AEC系列400G/800G采用Marvell DSP已量产，1.6T具备Marvell 5nm与Broadcom 3nm两种方案并支持样品小批量。800G产品现有月产能约30K，二期扩产已启动建设。</p>
+                </div>
+                <div class="biz-grid">
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #e8f4fd;">&#9881;</div>
+                        <h4>DAC 无源直连铜缆</h4>
+                        <p>10G、25G、100G、200G、400G、800G、1.6T全速率量产能力，面向机柜内与相邻机柜短距互联。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #e8fde8;">&#9889;</div>
+                        <h4>ACC / AEC 有源铜缆</h4>
+                        <p>400G/800G量产、1.6T样品小批量，芯片方案覆盖Semtech、Macom、Marvell、Broadcom及自研路线。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #f3e8fd;">&#128225;</div>
+                        <h4>线材自研自产</h4>
+                        <p>配置进口罗森泰发泡机等核心装备，规模化自主加工高速线材，从源头把控传输性能与批次一致性。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #fde8f4;">&#129518;</div>
+                        <h4>自研芯片与测试装备</h4>
+                        <p>推进自研芯片联合攻关（已有晶圆样品），并自主开发800G/1.6T有源铜缆自动调试误码仪与多通道TP4调测系统。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #fff4e5;">&#127757;</div>
+                        <h4>海外交付与市场布局</h4>
+                        <p>DAC与AEC产品已大批量出货海外，具备成熟海外渠道；规划深圳研发销售分支与马来西亚生产基地。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon" style="background: #e5f6fd;">&#127981;</div>
+                        <h4>产能与项目载体</h4>
+                        <p>一期2条800G+1条1.6T产线已投产，规划年产24万根；三台工投提供3,000平方米标准厂房及3,000万元设备融资租赁支持。</p>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 资质与荣誉 -->
+        <details class="collapse-section">
+            <summary>&#127942; 已获得的资质与荣誉</summary>
+            <div class="collapse-body">
+                <div class="card">
+                    <h3>国家级资质与认定</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-national">&#127942; 科技型中小企业（2026年评价入库，有效期2026-07-28至2026-12-31）</span>
+                        <span class="badge badge-national">&#127942; 国家中小企业数字化转型城市试点（绵阳）入库试点企业（2026年4月1日—9月30日批次）</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>省市级资质与认定</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-province">&#127941; 绵阳市2026年三季度创新型中小企业（市经信局2026-09-01拟推荐公示）</span>
+                        <span class="badge badge-city">&#127941; 梓州产城新区高速铜连接项目——县级重点招引项目（"1+1+6"驻企服务机制）</span>
+                        <span class="badge badge-other">&#127942; ISO9001质量管理体系认证（CN13/20619.03，2025-11-24至2028-12-09）</span>
+                        <span class="badge badge-other">&#127942; 环境管理体系认证（CN17/20800.03，2025-04-22至2026-07-13）</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>知识产权储备</h3>
+                    <div class="badge-group">
+                        <span class="badge badge-national">授权发明专利 2项（光器件整形剪脚工装、可控夹持装置）</span>
+                        <span class="badge badge-province">授权实用新型 2项（高速铜缆一体化注塑成型工装、高压注塑平台）</span>
+                        <span class="badge badge-city">公开发明专利申请 3项（800G TP4多通道调测、1.6T自动调试误码仪、有源铜缆封装方法）</span>
+                        <span class="badge badge-other">注册商标 APEXLINK（第9类，初审驳回状态）</span>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <!-- 近三年项目申请情况 -->
+        <details class="collapse-section">
+            <summary>&#128203; 近三年项目申请情况（2024—2026）</summary>
+            <div class="collapse-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">2024年9—11月</div>
+                        <h4>高速铜连接项目落地三台，合资主体设立</h4>
+                        <p>鑫科材料与三台县人民政府等签订《高速铜连接项目投资合作协议》，规划总投资约5亿元分阶段投入；一期ACC/AEC高速铜连接项目建设投资6,740万元（厂房建设1,400万元、设备投资3,200万元、其他辅助设施140万元、达产流动资金2,000万元）。公司11月4日完成设立登记。 <span class="status-done">已完成</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2024年11月—2025年5月</div>
+                        <h4>一期产线建设并投产</h4>
+                        <p>2024年10月开建，2025年5月28日"拓鑫智连高速铜连接项目"正式投产，同步举行鑫梓能科通信高速铜连接用铜缆项目建设启动仪式；配套三台工投3,000平方米标准厂房及3,000万元设备融资租赁（10年后回购）落地。 <span class="status-done">已投产</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2026年上半年</div>
+                        <h4>专利与体系认证集中落证</h4>
+                        <p>2026年3—6月连续获得高速铜缆注塑成型工装、高压注塑平台实用新型授权及夹持力控制、光器件整形发明专利授权；质量管理体系认证（ISO9001）2025年11月发证并持续有效。 <span class="status-done">已获证</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2026年4月—9月</div>
+                        <h4>入选绵阳市中小企业数字化转型城市试点入库企业</h4>
+                        <p>经自主申报、属地推荐、市级审核，列入全市158家试点入库企业名单（2026年4月1日—9月30日批次，市经信局2026年9月公布），进入数字化改造实施与评测验收阶段。 <span class="status-progress">实施中</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2026年7—9月</div>
+                        <h4>科技型中小企业入库与创新型中小企业推荐</h4>
+                        <p>7月完成2026年度国家科技型中小企业评价入库；9月列入绵阳市2026年三季度创新型中小企业拟推荐企业公示名单。 <span class="status-done">已入库</span></p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2026年三季度起</div>
+                        <h4>二期扩建与新一代产品研发推进</h4>
+                        <p>800G月产能约30K，二期扩建计划于2026年三季度启动，后续产能稳步扩容；1.6T ACC/AEC（Marvell 5nm、Broadcom 3nm方案）支持样品小批量，10月公开发明专利"一种有源铜缆及有源铜缆的封装方法"。 <span class="status-progress">推进中</span></p>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+
+</div>
+
+<!-- ===== Footer ===== -->
+<div class="footer">
+    拓鑫智连（三台）科技有限公司 &middot; 2027年度奖补项目申报清单 &middot; 仅供内部参考使用 &middot; 编制日期：2026年10月23日
+</div>
+
+<!-- ===== JavaScript ===== -->
+<script>
+    // 0. 布局同步：防止预览容器或外部样式覆盖媒体查询导致表格与卡片同时显示
+    function syncLayout() {
+        var tw = document.getElementById('tableWrapper');
+        var mc = document.getElementById('mobileCards');
+        var isNarrow = window.innerWidth <= 1024;
+        if (tw) { tw.style.display = isNarrow ? 'none' : 'block'; }
+        if (mc) { mc.style.display = isNarrow ? 'block' : 'none'; }
+    }
+    syncLayout();
+    window.addEventListener('resize', syncLayout);
+
+    // 1. 导航平滑滚动 + 激活态切换
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // 2. 表格 + 卡片 层级筛选（同步桌面和移动端）
+    function filterTable(level) {
+        const tableRows = document.querySelectorAll('#projectTable tbody tr');
+        tableRows.forEach(row => {
+            row.style.display = (level === 'all' || row.dataset.level === level) ? '' : 'none';
+        });
+        const mobileCards = document.querySelectorAll('#mobileCards .m-project-card');
+        mobileCards.forEach(card => {
+            card.style.display = (level === 'all' || card.dataset.level === level) ? '' : 'none';
+        });
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    // 3. 滚动监听 (Scroll Spy)
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('.section, .collapse-group');
+        const navLinks = document.querySelectorAll('.nav a');
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 140;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // 4. 折叠面板：点击"企业详情"导航自动展开所有折叠面板
+    document.querySelector('.nav a[href="#company"]').addEventListener('click', function() {
+        setTimeout(() => {
+            document.querySelectorAll('.collapse-section').forEach(d => d.open = true);
+        }, 400);
+    });
+</script>
+
+</body>
+</html>
